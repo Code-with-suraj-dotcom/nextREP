@@ -1,5 +1,7 @@
 # Gym Trainer App
 
+**Live Demo:** [https://next-rep-beige.vercel.app/](https://next-rep-beige.vercel.app/)
+
 Welcome to the **Gym Trainer App** – a complete, responsive fitness platform engineered with React 19, Vite, and Tailwind CSS. The platform utilizes Firebase for authentication and database management, serving as the ultimate companion for fitness enthusiasts at any level.
 
 ---
