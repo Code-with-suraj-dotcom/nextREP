@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import heroVideo from '../assets/hero-video.mp4';
+import { useAuth } from '../context/AuthContext';
 
 const Marquee = () => (
   <div className="relative overflow-hidden border-y border-white/10 bg-black py-3">
@@ -18,7 +20,11 @@ const Marquee = () => (
   </div>
 );
 
-const HeroBanner = () => (
+const HeroBanner = () => {
+  const { currentUser } = useAuth();
+  const vaultTo = currentUser ? '/library' : '/login';
+
+  return (
   <>
     <section className="relative isolate h-[88vh] min-h-[640px] w-full overflow-hidden bg-[#0a0a0a]">
       <video
@@ -61,12 +67,12 @@ const HeroBanner = () => (
               Enter the grind
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
-            <a
-              href="library"
+            <Link
+              to={vaultTo}
               className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-bold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm transition-colors hover:border-[#d4ff00] hover:text-[#d4ff00]"
             >
               Browse the vault
-            </a>
+            </Link>
           </div>
 
           <div className="mt-8 grid max-w-md grid-cols-3 gap-4 border-t border-white/10 pt-6">
@@ -94,6 +100,7 @@ const HeroBanner = () => (
 
     <Marquee />
   </>
-);
+  );
+};
 
 export default HeroBanner;
